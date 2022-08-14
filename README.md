@@ -1,1 +1,2 @@
 # python-email-service
+[![Build Status](https://96e1-2607-fb90-f805-d9d9-4989-c68b-1de5-2e6c.ngrok.io/buildStatus/icon?job=python-email-service)](https://96e1-2607-fb90-f805-d9d9-4989-c68b-1de5-2e6c.ngrok.io/job/python-email-service/)
