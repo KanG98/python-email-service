@@ -4,7 +4,6 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                git 'https://github.com/KanG98/python-email-service.git'
                 echo 'Building..'
             }
         }
