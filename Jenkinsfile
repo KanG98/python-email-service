@@ -1,5 +1,5 @@
 void notifyPipelineStart() {
-    step([$class: 'GitHubSetCommitStatusBuilder', statusMessage: [content: 'Pipeline Started']]);
+  step([$class: 'GitHubSetCommitStatusBuilder', statusMessage: [content: 'Pipeline Started']]);
 }
 
 void setBuildStatus(String message, String state) {
@@ -17,8 +17,10 @@ pipeline {
 
     stages {
 
-        stage('Notify Github'){
-            notifyPipelineStart();
+        stage('Notify Github') {
+            steps {
+                notifyPipelineStart();
+            }
         }
 
         stage('Build') {
