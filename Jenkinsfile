@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'pytest mytest.py'
+                sh 'pytest'
                 echo 'llo uuu'
             }
         }
