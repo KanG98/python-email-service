@@ -22,7 +22,6 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'in branch test'
-                sh 'sleep 2m'
             }
         }
         stage('Test') {
