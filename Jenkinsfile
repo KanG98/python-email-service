@@ -12,6 +12,10 @@ pipeline {
     agent any
 
     stages {
+        stage('Notify Github'){
+            step([$class: 'GitHubSetCommitStatusBuilder', statusMessage: [content: 'Pipeline Started']])
+        }
+
         stage('Build') {
             steps {
                 echo 'in branch test'
