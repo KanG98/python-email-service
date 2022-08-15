@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                python3 -m pytest
+                sh 'pytest mytest.py'
                 echo 'llo uuu'
             }
         }
