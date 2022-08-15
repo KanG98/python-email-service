@@ -19,7 +19,7 @@ pipeline {
 
         stage('Notify Github') {
             steps {
-                notifyPipelineStart();
+                setBuildStatus("Build succeeded", "PENDING");
             }
         }
 
