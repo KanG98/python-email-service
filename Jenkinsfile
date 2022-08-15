@@ -1,7 +1,3 @@
-void notifyPipelineStart() {
-  step([$class: 'GitHubSetCommitStatusBuilder', statusMessage: [content: 'Pipeline Started']]);
-}
-
 void setBuildStatus(String message, String state) {
   step([
       $class: "GitHubCommitStatusSetter",
@@ -19,7 +15,7 @@ pipeline {
 
         stage('Notify Github') {
             steps {
-                setBuildStatus("Build succeeded", "PENDING");
+                setBuildStatus("Building", "PENDING");
             }
         }
 
