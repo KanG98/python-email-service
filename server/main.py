@@ -1,31 +1,28 @@
 import os 
 from flask import Flask
-from flask_mail import Mail, Message
+from mailing import Mailing, Message
 from dotenv import load_dotenv
 
 
 load_dotenv()
 
 app = Flask(__name__)
-mail= Mail(app)
 
-email = 'yankang198.dev@gmail.com'
-password = os.getenv('EMAIL_PASSWORD')
-
-app.config['MAIL_SERVER']='smtp.gmail.com'
-app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = email
-app.config['MAIL_PASSWORD'] = password
-app.config['MAIL_USE_TLS'] = False
-app.config['MAIL_USE_SSL'] = True
-app.config['TESTING'] = True
-mail = Mail(app)
 
 @app.route("/")
 def index():
+   email = 'yankang198.dev@gmail.com'
+   password = os.getenv('EMAIL_PASSWORD')
+   mail= Mailing(app, email, password)
+
+
    msg = Message('hi', sender = email, recipients = ['yankang198@gmail.com'])
-   msg.body = "Hello hi message sent from Flask-Mail"
+   # msg.body = "Helo hi message sent from Flask-Mail"
    msg.html = "<b>hihi</b>"
+
+   # with app.open_resource("image.png") as fp:
+   #    msg.attach("image.png", "image/png", fp.read())
+
    mail.send(msg)
    return "Sent"
 
