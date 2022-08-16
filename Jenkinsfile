@@ -21,6 +21,7 @@ pipeline {
 
         stage('Build') {
             steps {
+                sh 'mkdir test'
                 echo 'in branch test'
             }
         }
