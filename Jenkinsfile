@@ -23,10 +23,6 @@ pipeline {
             steps {
                 sh 'pip3 install -r requirements-dev.txt'
                 echo 'in branch test'
-                echo 'branch name'
-                echo env.BRANCH_NAME
-                echo 'target name'
-                echo env.CHANGE_TARGET
             }
         }
         stage('Test') {
