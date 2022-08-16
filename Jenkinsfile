@@ -21,7 +21,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'mkdir test'
+                sh 'pip3 install -r requirements-dev.txt'
                 echo 'in branch test'
             }
         }
