@@ -11,4 +11,7 @@ class Mailing(Mail):
     app.config['MAIL_USE_SSL'] = True
     app.config['TESTING'] = True
     super().__init__(app)
-  
+
+  def send_html(self, subject, email, recipients, html):
+    msg = Message(subject, sender = email, recipients = recipients, html=html)
+    super().send(msg)
