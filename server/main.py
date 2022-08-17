@@ -1,5 +1,5 @@
 import os 
-from flask import Flask
+from flask import Flask, make_response
 from mailing import Mailing, Message
 from dotenv import load_dotenv
 
@@ -24,7 +24,7 @@ def index():
    #    msg.attach("image.png", "image/png", fp.read())
 
    mail.send(msg)
-   return "Sent"
+   return make_response("Sent", 200)
 
 if __name__ == '__main__':
    app.run(debug = True)
