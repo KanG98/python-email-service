@@ -1,5 +1,5 @@
 import os 
-from flask import Flask, make_response
+from flask import Flask, request, make_response
 from mailing import Mailing, Message
 from dotenv import load_dotenv
 
@@ -8,9 +8,14 @@ load_dotenv()
 
 app = Flask(__name__)
 
-
 @app.route("/")
 def index():
+   return make_response("hello world", 200)
+
+@app.route("/mailing", methods = ["POST"])
+def mailing():
+   form = dict(request.form.lists())
+
    email = 'yankang198.dev@gmail.com'
    password = os.getenv('EMAIL_PASSWORD')
    mail= Mailing(app, email, password)
@@ -24,7 +29,7 @@ def index():
    #    msg.attach("image.png", "image/png", fp.read())
 
    mail.send(msg)
-   return make_response("Sent", 200)
+   return make_response(form, 200)
 
 if __name__ == '__main__':
    app.run(debug = True)
