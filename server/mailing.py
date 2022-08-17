@@ -9,6 +9,6 @@ class Mailing(Mail):
     app.config['MAIL_PASSWORD'] = password
     app.config['MAIL_USE_TLS'] = False
     app.config['MAIL_USE_SSL'] = True
-    # app.config['TESTING'] = True
+    app.config['TESTING'] = True
     super().__init__(app)
   
