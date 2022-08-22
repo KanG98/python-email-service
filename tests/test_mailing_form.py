@@ -7,7 +7,8 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 def test_mailing_form():
 
-  service = Service(executable_path=ChromeDriverManager().install())
+  # service = Service(executable_path=ChromeDriverManager().install())
+  service = Service(executable_path='/usr/bin/chromedriver')
   opts = Options()
   opts.add_argument('--headless')
   opts.add_argument('--no-sandbox')
