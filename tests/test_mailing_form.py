@@ -1,18 +1,19 @@
 import os
 from time import sleep
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 
 def test_mailing_form():
-  
-  # driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
-  driver = webdriver.Firefox()
-  driver.get("file:///"+os.getcwd()+"/client/index.html")
-  elem = driver.find_element(By.ID, "email")
-  elem.send_keys("hi")
-  elem.send_keys(Keys.RETURN)
-  assert "No results found." not in driver.page_source
-  driver.close()
+
+  service = Service(executable_path=ChromeDriverManager().install())
+  opts = Options()
+  opts.add_argument('--no-sandbox')
+  opts.add_argument('--headless')
+  opts.add_argument('--disable-dev-shm-usage')
+  browser = webdriver.Chrome(service=service, options=opts)
+  browser.get('http://google.com/')
+
+  assert "No results found." not in browser.page_source
+  browser.close()
