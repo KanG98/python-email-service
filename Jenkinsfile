@@ -20,6 +20,8 @@ pipeline {
         }
 
         stage('Run Flask') {
+            steps {
+
                 sh 'python3 server/main.py'
             }
         }
