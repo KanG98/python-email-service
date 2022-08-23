@@ -7,12 +7,18 @@
   <title>Document</title>
 </head>
 <body>
-  <form id="mail" onsubmit="sendMail()">
+  <form id="mail" action="http://127.0.0.1:5000/mailing" method="post">
     <label for="email">Email: </label>
     <input type="text" id="email" name="email"><br><br>
-    <label for="lname">Password:</label>
-    <input type="text" id="lname" name="lname"><br><br>
-    <input type="submit" value="Submit">
+    <label for="password">Password:</label>
+    <input type="text" id="password" name="password"><br><br>
+    <label for="subject">Subject: </label>
+    <input type="text" id="email" name="subject"><br><br>
+    <label for="body">Body:</label>
+    <input type="text" id="body" name="test"><br><br>
+    <label for="recipient">recipient:</label>
+    <input type="text" id="recipient" name="recipient"><br><br>
+    <input type="submit" id="sbmt" value="Submit">
   </form>
   
   <script src="js/sendMail.js"></script>

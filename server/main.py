@@ -1,4 +1,5 @@
 import os 
+import platform
 from flask import Flask, request, make_response
 from mailing import Mailing, Message
 from dotenv import load_dotenv

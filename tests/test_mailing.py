@@ -5,12 +5,10 @@ from server.main import app
 def test_mailing():
   app.app_context().push()
 
-  # mail= Mail(app)
   email = 'yankang198.dev@gmail.com'
   password = os.getenv('EMAIL_PASSWORD')
   mail = Mailing(app, email, password)
 
-  # need to link mail to mail obj
   with mail.record_messages() as outbox:
 
       mail.send_message(subject='testing',
