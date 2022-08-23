@@ -9,4 +9,6 @@ def test_dotenv():
     for env in dotenv:
       all_dotenv_env.append(env)
 
+  print("dotenv", all_dotenv_env)
+  print("envs in device", all_envs_keys)
   assert all(env in all_envs_keys for env in all_dotenv_env)
