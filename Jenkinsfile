@@ -19,13 +19,6 @@ pipeline {
             }
         }
 
-        stage('Run Flask') {
-            steps {
-
-                sh 'python3 server/main.py'
-            }
-        }
-
         stage('Build') {
             steps {
                 sh 'pip3 install -r requirements-dev.txt'
