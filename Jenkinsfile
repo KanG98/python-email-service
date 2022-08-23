@@ -21,6 +21,7 @@ pipeline {
 
         stage('Build') {
             steps {
+                sh 'python3 server/main.py'
                 sh 'pip3 install -r requirements-dev.txt'
                 echo 'in branch test'
             }
